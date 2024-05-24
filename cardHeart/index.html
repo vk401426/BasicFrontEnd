@@ -3,12 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mail</title>
+    <title>Card</title>
     <link rel="stylesheet" href="mail.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.0.0/dist/iconify-icon.min.js"></script>
   </head>
   <body>
-    <div class="main">
-      <div class="envelop">
+    <div class="main-alert" >
+      <div class="pop-alert">
+        <iconify-icon
+          style="color: #fff"
+          icon="solar:smartphone-rotate-orientation-bold"
+          width="6rem"
+          height="6rem"
+        ></iconify-icon>
+        <div>Rotate to Landscape</div>
+      </div>
+    </div>
+    <div style="position:absolute;display:  flex; justify-content: center; align-items: center; height: 100vh;"><button id="fbtn"">open</button></div>
+    <div class="main" >
+      <div class="envelop" >
         <div class="back"></div>
         <div class="top"></div>
         <div class="card sc-large">
