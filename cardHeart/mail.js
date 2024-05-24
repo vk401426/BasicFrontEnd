@@ -57,7 +57,7 @@ function handleScroll(scOp) {
     card.style.height = " 55%";
     console.log(-(j - (sc - j)) * 19);
   } else if (sc == 15) {
-    card.style.transform = `translateY(55%) scale(4.1)`;
+    card.style.transform = `translateY(55%) scale(3.8)`;
     card.style.transition = "3s ease";
     console.log("scaling : ", sc);
   }
