@@ -1,9 +1,11 @@
 let card = document.querySelector(".card");
 let body = document.querySelector("body");
+let main = document.querySelector(".main");
 let topp = document.querySelector(".top");
 let alrt = document.querySelector(".main-alert")
 let i = 0;
 let j = 1;
+let isOpen=false
 let startY = 0;
 let currentY = 0;
 let isTouching = false;
@@ -14,6 +16,7 @@ const isPortrait = window.matchMedia('(orientation: portrait)').matches;
 console.log(isPortrait); // Returns `true` if in portrait mode, `false` if in landscape mode
 if(isPortrait){
   alrt.style.display='flex'
+  document.querySelector(".main").style.display='none'
   fbtn.style.display='none'
 }
 else{
@@ -34,24 +37,32 @@ function handleScroll(scOp) {
   }
   console.log(i);
   sc = i;
-  if (sc > 0 && sc <= 8) {
-    card.style.transform = `translateY(${-sc * 19}%)`;
+  if(sc<=3)
+    {
+      card.style.height = "50%";
+      card.style.transform = `translateY(55%)`;
+    }
+  if (sc>3&&sc <=8) {
+    card.style.transform = `translateY(-55%)`;
     card.style.transition = ".61s ease";
     card.style.zIndex = 0;
-    card.style.height = "300px";
+    card.style.height = "65%";
     console.log(-sc * 19);
     j = sc;
-  } else if (sc > 8 && sc <= 16) {
-    card.style.transform = `translateY(${-(j - (sc - j)) * 19}%)`;
+  } else if (sc>8 && sc <=13) {
+    // card.style.transform = `translateY(${-(j - (sc - j)) *5}%)`;
+    card.style.transform = `translateY(55%)`
     card.style.transition = ".61s ease";
     card.style.zIndex = 5;
-    card.style.height = "200px";
+    card.style.height = " 55%";
     console.log(-(j - (sc - j)) * 19);
-  } else if (sc == 19 || sc == 23) {
-    card.style.transform = `scale(${sc / 5})`;
+  } else if (sc == 15) {
+    card.style.transform = `translateY(55%) scale(4.1)`;
     card.style.transition = "3s ease";
     console.log("scaling : ", sc);
   }
+  else if(sc>16)
+    sc=16
 }
 
 // Scroll event listener
@@ -67,12 +78,17 @@ envOpen= function () {
     topp.style.transform = "rotateX(180deg) translateY(60%)";
     topp.style.transitionDelay = "0s";
     card.style.transitionDelay = ".61s";
-    card.style.height = "300px";
-    card.style.transform = "translateY(-50%)";
+    card.style.height = "50%";
+    card.style.transform = "translateY(35%)";
   }
 }
-// body.addEventListener("mouseenter", () => {envOpen});
-body.addEventListener("mouseleave", () => {
+
+main.addEventListener('mouseenter',()=>{
+  if(isOpen)
+    envOpen()
+});
+
+main.addEventListener("mouseleave", () => {
   if (i < 19) {
     console.log("mouse leave triggered i=", i);
     topp.style.backgroundColor = "#e2546e";
@@ -80,8 +96,8 @@ body.addEventListener("mouseleave", () => {
     topp.style.transform = "translateY(-40%)";
     topp.style.transitionDelay = "1.81s";
     card.style.zIndex = 0;
-    card.style.height = "200px";
-    card.style.transform = "translateY(10%)";
+    card.style.height = "50%";
+    card.style.transform = "translateY(50%)";
     i = 0;
   }
 });
@@ -125,5 +141,8 @@ fullscreenButton.addEventListener('click', () => {
     document.documentElement.requestFullscreen();
   }
   setTimeout(envOpen,500)
+  isOpen=true;
   
 });
+
+
