@@ -37,8 +37,11 @@ function handleScroll(scOp) {
   }
   console.log(i);
   sc = i;
-  if(sc<=3)
+  if(sc<0)
+    envClose()
+  else if(sc>=0&&sc<=3)
     {
+      envOpen()
       card.style.height = "50%";
       card.style.transform = `translateY(55%)`;
     }
@@ -72,7 +75,7 @@ window.addEventListener("wheel", (e) => {
 
 // Mouse events
 envOpen= function () {
-  if (i < 1) {
+  if (i <=3) {
     topp.style.backgroundColor = "#ffb3c1";
     topp.style.zIndex = -1;
     topp.style.transform = "rotateX(180deg) translateY(60%)";
@@ -88,7 +91,9 @@ main.addEventListener('mouseenter',()=>{
     envOpen()
 });
 
-main.addEventListener("mouseleave", () => {
+main.addEventListener("mouseleave", () => {envClose});
+  
+  envClose= function (){
   if (i < 19) {
     console.log("mouse leave triggered i=", i);
     topp.style.backgroundColor = "#e2546e";
@@ -100,7 +105,7 @@ main.addEventListener("mouseleave", () => {
     card.style.transform = "translateY(50%)";
     i = 0;
   }
-});
+}
 
 // Touch events
 body.addEventListener("touchstart", (e) => {
