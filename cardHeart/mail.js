@@ -62,7 +62,7 @@ function handleScroll(scOp) {
     console.log("scaling : ", sc);
   }
   else if(sc>16)
-    sc=16
+    i=16
 }
 
 // Scroll event listener
