@@ -23,10 +23,11 @@ if(isPortrait){
   fbtn.style.display='none'
 }
 else{
+  if(!document.fullscreenElement){
   alrt.style.display='none'
   fbtn.style.display='flex'
   document.querySelector(".main").style.display='none'
-}}
+}}}
 handleOrientation()
 window.addEventListener('resize',handleOrientation);
 
@@ -66,7 +67,7 @@ function handleScroll(scOp) {
     card.style.height = " 55%";
     console.log(-(j - (sc - j)) * 19);
   } else if (sc == 15) {
-    card.style.transform = `translateY(55%) scale(3.8)`;
+    card.style.transform = `translateY(55%) scale(3.4)`;
     card.style.transition = "3s ease";
     console.log("scaling : ", sc);
   }
