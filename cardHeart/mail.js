@@ -12,6 +12,9 @@ let isTouching = false;
 
 
 //Function to check display orientation 
+
+
+let handleOrientation = function (){
 const isPortrait = window.matchMedia('(orientation: portrait)').matches;
 console.log(isPortrait); // Returns `true` if in portrait mode, `false` if in landscape mode
 if(isPortrait){
@@ -23,7 +26,10 @@ else{
   alrt.style.display='none'
   fbtn.style.display='flex'
   document.querySelector(".main").style.display='none'
-}
+}}
+handleOrientation()
+window.addEventListener('resize',handleOrientation);
+
 
 
 // Function to handle animations
@@ -99,10 +105,10 @@ main.addEventListener("mouseleave", () => {envClose});
     topp.style.backgroundColor = "#e2546e";
     topp.style.zIndex = 3;
     topp.style.transform = "translateY(-40%)";
-    topp.style.transitionDelay = "1.81s";
+    topp.style.transitionDelay = ".81s";
     card.style.zIndex = 0;
     card.style.height = "50%";
-    card.style.transform = "translateY(50%)";
+    card.style.transform = "translateY(90%)";
     i = 0;
   }
 }
