@@ -46,33 +46,33 @@ function handleScroll(scOp) {
   sc = i;
   if(sc<0)
     envClose()
-  else if(sc>=0&&sc<=3)
+  else if(sc>=0&&sc<=6)
     {
       envOpen()
       card.style.height = "50%";
       card.style.transform = `translateY(55%)`;
     }
-  if (sc>3&&sc <=8) {
+  if (sc>6&&sc <=12) {
     card.style.transform = `translateY(-55%)`;
     card.style.transition = ".61s ease";
     card.style.zIndex = 0;
     card.style.height = "65%";
     console.log(-sc * 19);
     j = sc;
-  } else if (sc>8 && sc <=13) {
+  } else if (sc>12 && sc <=19) {
     // card.style.transform = `translateY(${-(j - (sc - j)) *5}%)`;
     card.style.transform = `translateY(55%)`
     card.style.transition = ".61s ease";
     card.style.zIndex = 5;
     card.style.height = " 55%";
     console.log(-(j - (sc - j)) * 19);
-  } else if (sc == 15) {
+  } else if (sc == 22) {
     card.style.transform = `translateY(55%) scale(3.4)`;
     card.style.transition = "3s ease";
     console.log("scaling : ", sc);
   }
-  else if(sc>16)
-    i=16
+  else if(sc>23)
+    i=23
 }
 
 // Scroll event listener
